@@ -36,12 +36,10 @@ struct ContentView: View {
                             HStack(alignment: .center) {
                                 Image(systemName: "sun.max.fill")
                                     .foregroundColor(.white)
-                                    .border(Color.red, width: 1)
                                 Text(weather.amountOfDaylight)
                                     .bold()
                                     .foregroundColor(.white)
                                     .frame(width: 80.0, alignment: .trailing)
-                                    .border(Color.red, width: 1)
                             }
                             HStack(alignment: .firstTextBaseline) {
                                 Image(uiImage: UIImage(systemName: weather.remainingDaylightIcon)!.withRenderingMode(.alwaysTemplate).withTintColor(.white))
@@ -49,12 +47,10 @@ struct ContentView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 18.0)
                                     .foregroundColor(.white)
-                                    .border(Color.red, width: 1)
                                 Text(weather.remainingDaylight)
                                     .bold()
                                     .foregroundColor(.white)
                                     .frame(width: 80.0, alignment: .trailing)
-                                    .border(Color.red, width: 1)
                             }
                             Spacer()
                             Text(viewModel.location ?? "")
