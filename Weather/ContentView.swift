@@ -73,7 +73,7 @@ struct ContentView: View {
             }
         }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             self.viewModel.fetch()
-        }
+        }.statusBar(hidden: true)
     }
 }
 
