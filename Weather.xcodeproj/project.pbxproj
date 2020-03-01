@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA3B663B23F4FD4700352EC9 /* DaylightParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B663A23F4FD4700352EC9 /* DaylightParser.swift */; };
 		FADB23B223B97168003C93D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23B123B97168003C93D4 /* AppDelegate.swift */; };
 		FADB23B423B97168003C93D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23B323B97168003C93D4 /* SceneDelegate.swift */; };
 		FADB23B623B97168003C93D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23B523B97168003C93D4 /* ContentView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA3B663A23F4FD4700352EC9 /* DaylightParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylightParser.swift; sourceTree = "<group>"; };
 		FADB23AE23B97168003C93D4 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADB23B123B97168003C93D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADB23B323B97168003C93D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FADB23B923B9716A003C93D4 /* Preview Content */,
 				FADB23E123BD5F39003C93D4 /* ContentViewModel.swift */,
 				FADB23E323C15377003C93D4 /* LocationManager.swift */,
+				FA3B663A23F4FD4700352EC9 /* DaylightParser.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				FADB23B223B97168003C93D4 /* AppDelegate.swift in Sources */,
 				FADB23E423C15377003C93D4 /* LocationManager.swift in Sources */,
 				FADB23B423B97168003C93D4 /* SceneDelegate.swift in Sources */,
+				FA3B663B23F4FD4700352EC9 /* DaylightParser.swift in Sources */,
 				FADB23B623B97168003C93D4 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

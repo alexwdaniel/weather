@@ -32,18 +32,25 @@ class LocationManager: NSObject {
         super.init()
         
         self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
 //        self.locationManager.startUpdatingLocation()
-        self.locationManager.requestLocation()
+//        self.locationManager.requestLocation()
+        if CLLocationManager.significantLocationChangeMonitoringAvailable() {
+            self.locationManager.startMonitoringSignificantLocationChanges()
+            self.locationManager.pausesLocationUpdatesAutomatically = true
+            self.locationManager.activityType = .fitness
+        }
     }
     
     private func geocode() {
         guard let location = self.location else { return }
         geocoder.reverseGeocodeLocation(location, completionHandler: { (places, error) in
             if error == nil {
-                self.placemark = places?[0]                
+                self.placemark = places?[0]
+                print("--> set placemark: \(self.placemark!)")
             } else {
+                print(error!)
                 self.placemark = nil
             }
         })
