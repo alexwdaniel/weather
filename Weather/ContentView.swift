@@ -8,6 +8,37 @@
 
 import SwiftUI
 
+struct TitleStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.title)
+            .lineSpacing(8)
+            .foregroundColor(.primary)
+    }
+}
+
+struct DataStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 24, weight: .bold))
+            .foregroundColor(.white)
+    }
+}
+
+struct LabelStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 10, weight: .bold))
+            .foregroundColor(.white)
+    }
+}
+
+extension Text {
+    func textStyle<Style: ViewModifier>(_ style: Style) -> some View {
+        ModifiedContent(content: self, modifier: style)
+    }
+}
+
 let backgrounds = [
     Scenes.day: LinearGradient(gradient: Gradient(colors: [Color("Light Yellow"), Color("Light Blue")]), startPoint: UnitPoint(x: 0.2, y: 0.8), endPoint: UnitPoint(x: 0.9, y: 0.1)),
     Scenes.dusk: LinearGradient(gradient: Gradient(colors: [Color("Pink Orange"), Color("Purple")]), startPoint: UnitPoint(x: 0.1, y: 0.95), endPoint: UnitPoint(x: 0.75, y: 0.25)),
@@ -16,8 +47,8 @@ let backgrounds = [
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel: ContentViewModel = ContentViewModel()
-    @State private var isAnimating = false
+    @ObservedObject var viewModel: ContentViewModel = ContentViewModel()    
+    @State private var currentPage = 0
     
     var body: some View {
         Group {
@@ -28,47 +59,15 @@ struct ContentView: View {
                     Group {
                         backgrounds[weather.scene].edgesIgnoringSafeArea(.all)
                         
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("\(weather.currentTemp)°")
-                                .font(Font.system(size: 72))
-                                .bold()
-                                .foregroundColor(.white)
-                            HStack(alignment: .center) {
-                                Image(systemName: "sun.max.fill")
-                                    .foregroundColor(.white)
-                                Text(weather.amountOfDaylight)
-                                    .bold()
-                                    .foregroundColor(.white)
-                                    .frame(width: 80.0, alignment: .trailing)
-                            }
-                            HStack(alignment: .firstTextBaseline) {
-                                Image(uiImage: UIImage(systemName: weather.remainingDaylightIcon)!.withRenderingMode(.alwaysTemplate).withTintColor(.white))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 18.0)
-                                    .foregroundColor(.white)
-                                Text(weather.remainingDaylight)
-                                    .bold()
-                                    .foregroundColor(.white)
-                                    .frame(width: 80.0, alignment: .trailing)
-                            }
-                            Spacer()
-                            Text(viewModel.location ?? "")
-                                .bold()
-                                .foregroundColor(.white)
-                        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading).padding()
+                        PageView(pageCount: 3, currentIndex: $currentPage) {
+                            DaylightView(weather: weather, location: viewModel.location)
+                            DetailView(weather: weather, location: viewModel.location)
+                        }
                     }
                 })
                 
                 if viewModel.weather == nil {
-                    Image(systemName: "sun.max.fill")
-                        .font(.system(size: 24))
-                        .foregroundColor(.white)
-                        .rotationEffect(.degrees(isAnimating ? 360 : 0))
-                        .animation(Animation.linear(duration: 2).repeatForever(autoreverses: false))
-                        .onAppear {
-                            self.isAnimating = true
-                        }
+                    LoadingView()
                 }
             }
         }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in

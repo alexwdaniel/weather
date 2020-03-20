@@ -26,6 +26,15 @@ struct DailyData: Codable {
     let time: Int
     let sunriseTime: Int
     let sunsetTime: Int
+    let summary: String
+    let precipProbability: Float
+    let temperatureHigh: Float
+    let temperatureHighTime: Int
+    let temperatureLow: Float
+    let temperatureLowTime: Int
+    let humidity: Float
+    let windSpeed: Float
+    let cloudCover: Float
 }
 
 struct ForecastRequest: Codable {
@@ -43,6 +52,15 @@ struct WeatherData {
     let remainingDaylightIcon: String
     var location: String?
     let scene: Scenes
+    let summary: String
+    let precipProbability: String
+    let temperatureHigh: String
+    let temperatureHighTime: String
+    let temperatureLow: String
+    let temperatureLowTime: String
+    let humidity: String
+    let windSpeed: String
+    let cloudCover: String
 }
 
 class ContentViewModel: ObservableObject {

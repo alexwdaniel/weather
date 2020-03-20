@@ -25,17 +25,25 @@ class DaylightParser {
     }
     
     func parse() -> WeatherData {
-        let currentTemp = String(format: "%.0f", self.forecast.currently.temperature)
         let today = self.forecast.daily.data[0]
         let tomorrow = self.forecast.daily.data[1]
         
         let config = self.remainderConfig(today: today, tomorrow: tomorrow)
         let weatherData = WeatherData(
-            currentTemp: currentTemp,
+            currentTemp: String(format: "%.0f", self.forecast.currently.temperature),
             amountOfDaylight: self.formatTimeInterval(start: today.sunriseTime, end: today.sunsetTime),
             remainingDaylight: config.amount,
             remainingDaylightIcon: config.icon,
-            scene: config.scene
+            scene: config.scene,
+            summary: today.summary,
+            precipProbability: String(format: "%.0f", today.precipProbability),
+            temperatureHigh: String(format: "%.0f", today.temperatureHigh),
+            temperatureHighTime: self.timeFromTimestamp(TimeInterval(today.temperatureHighTime)),
+            temperatureLow: String(format: "%.0f", today.temperatureLow),
+            temperatureLowTime: self.timeFromTimestamp(TimeInterval(today.temperatureLowTime)),
+            humidity: String(format: "%.0f", today.humidity),
+            windSpeed: String(format: "%.0f", today.windSpeed),
+            cloudCover: String(format: "%.0f", today.cloudCover)
         )
         
         return weatherData

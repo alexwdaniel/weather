@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA278DA424244BCB00C18C8D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA278DA324244BCB00C18C8D /* DetailView.swift */; };
+		FA278DA624244E2100C18C8D /* DaylightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA278DA524244E2100C18C8D /* DaylightView.swift */; };
+		FA278DA824244FA300C18C8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA278DA724244FA300C18C8D /* LoadingView.swift */; };
 		FA3B663B23F4FD4700352EC9 /* DaylightParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B663A23F4FD4700352EC9 /* DaylightParser.swift */; };
+		FA75529D241725F90030F9AF /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA75529C241725F90030F9AF /* PageView.swift */; };
 		FADB23B223B97168003C93D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23B123B97168003C93D4 /* AppDelegate.swift */; };
 		FADB23B423B97168003C93D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23B323B97168003C93D4 /* SceneDelegate.swift */; };
 		FADB23B623B97168003C93D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB23B523B97168003C93D4 /* ContentView.swift */; };
@@ -38,7 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA278DA324244BCB00C18C8D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		FA278DA524244E2100C18C8D /* DaylightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylightView.swift; sourceTree = "<group>"; };
+		FA278DA724244FA300C18C8D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FA3B663A23F4FD4700352EC9 /* DaylightParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylightParser.swift; sourceTree = "<group>"; };
+		FA75529C241725F90030F9AF /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		FADB23AE23B97168003C93D4 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADB23B123B97168003C93D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADB23B323B97168003C93D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +116,9 @@
 				FADB23B123B97168003C93D4 /* AppDelegate.swift */,
 				FADB23B323B97168003C93D4 /* SceneDelegate.swift */,
 				FADB23B523B97168003C93D4 /* ContentView.swift */,
+				FA278DA724244FA300C18C8D /* LoadingView.swift */,
+				FA278DA524244E2100C18C8D /* DaylightView.swift */,
+				FA278DA324244BCB00C18C8D /* DetailView.swift */,
 				FADB23B723B9716A003C93D4 /* Assets.xcassets */,
 				FADB23BC23B9716A003C93D4 /* LaunchScreen.storyboard */,
 				FADB23BF23B9716A003C93D4 /* Info.plist */,
@@ -115,6 +126,7 @@
 				FADB23E123BD5F39003C93D4 /* ContentViewModel.swift */,
 				FADB23E323C15377003C93D4 /* LocationManager.swift */,
 				FA3B663A23F4FD4700352EC9 /* DaylightParser.swift */,
+				FA75529C241725F90030F9AF /* PageView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -277,11 +289,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADB23E223BD5F39003C93D4 /* ContentViewModel.swift in Sources */,
+				FA278DA424244BCB00C18C8D /* DetailView.swift in Sources */,
 				FADB23B223B97168003C93D4 /* AppDelegate.swift in Sources */,
+				FA278DA824244FA300C18C8D /* LoadingView.swift in Sources */,
+				FA278DA624244E2100C18C8D /* DaylightView.swift in Sources */,
 				FADB23E423C15377003C93D4 /* LocationManager.swift in Sources */,
 				FADB23B423B97168003C93D4 /* SceneDelegate.swift in Sources */,
 				FA3B663B23F4FD4700352EC9 /* DaylightParser.swift in Sources */,
 				FADB23B623B97168003C93D4 /* ContentView.swift in Sources */,
+				FA75529D241725F90030F9AF /* PageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
